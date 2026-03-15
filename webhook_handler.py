@@ -4,7 +4,7 @@ import subprocess
 import sys
 from flask import Flask, request, jsonify
 
-app = Flask(name)
+app = Flask(__name__)
 
 APP_DIR = "/home/ilya/catty-app"
 REPO_URL = "https://github.com/ilyanikoniko/catty-reminders-app.git"
@@ -51,14 +51,14 @@ def webhook():
         return jsonify({'msg': 'ignored'}), 200
 
     print("📩 Получен webhook, запускаем deploy в фоне")
-    subprocess.Popen([sys.executable, os.path.abspath(file), 'deploy'])
+    subprocess.Popen([sys.executable, os.path.abspath(__file__), 'deploy'])
     return jsonify({'status': 'accepted'}), 202
 
 @app.route('/health', methods=['GET'])
 def health():
     return "ok"
 
-if name == 'main':
+if __name__ == '__main__':
     if len(sys.argv) > 1 and sys.argv[1] == 'deploy':
         deploy()
     else:
