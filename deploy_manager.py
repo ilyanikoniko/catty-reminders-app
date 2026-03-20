@@ -5,7 +5,7 @@ import logging
 from flask import Flask, request, jsonify
 
 # Параметры путей
-PROJECT_DIR = "/home/ilya/catty-app"
+PROJECT_DIR = "/home/ilya/catty-reminders-app"
 CONF_FILE = "/etc/catty-app-env"
 SERVICE_NAME = "catty"
 
