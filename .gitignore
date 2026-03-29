@@ -1,0 +1,20 @@
+# Виртуальное окружение
+venv/
+ENV/
+env/
+
+# Python мусор
+pycache/
+*.py[cod]
+*.class
+
+# Настройки IDE (то что мы видели в ls)
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Логи и конфиги с секретами
+*.log
+deploy.log
+/etc/catty-app-env
